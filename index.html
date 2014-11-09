@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>wayspurrchen/pixelsorter</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/foundation.min.css">
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    </head>
+    <body>
+        <div class="row">
+            <div class="columns large-12">
+                <!-- Add your site or application content here -->
+                <div class="title clearfix">
+                    <h1><a href="http://twitter.com/pixelsorter"><strong>@pixelsorter</strong></a></h1>
+                    <a href="http://wayspurrchen.com/" class="back">&lt; back to wayspurrchen.com</a>
+                </div>
+                <ul class="small-block-grid-4">
+                  <li><a href="https://pbs.twimg.com/media/BxcXL-RCcAA7jqD.png"><img src="https://pbs.twimg.com/media/BxcXL-RCcAA7jqD.png:large"></a></li>
+                  <li><a href="https://pbs.twimg.com/media/BxcV9gcIAAAe-M6.png"><img src="https://pbs.twimg.com/media/BxcV9gcIAAAe-M6.png:large"></a></li>
+                  <li><a href="https://pbs.twimg.com/media/BxcUkfsIQAAcxfF.png:large"><img src="https://pbs.twimg.com/media/BxcUkfsIQAAcxfF.png:large"></a></li>
+                  <li><a href="https://pbs.twimg.com/media/BxYkOZWIcAEzjjf.png"><img src="https://pbs.twimg.com/media/BxYkOZWIcAEzjjf.png:large"></a></li>
+                  <li><a href="https://pbs.twimg.com/media/BxcNDuMIYAAXk07.png:large"><img src="https://pbs.twimg.com/media/BxcNDuMIYAAXk07.png:large"></a></li>
+                  <li><a href="https://pbs.twimg.com/media/BxcNXjTIAAAJ1VJ.png:large"><img src="https://pbs.twimg.com/media/BxcNXjTIAAAJ1VJ.png:large"></a></li>
+                  <li><a href="https://pbs.twimg.com/media/BxcNRQVIYAAEPle.png:large"><img src="https://pbs.twimg.com/media/BxcNRQVIYAAEPle.png:large"></a></li>
+                  <li><a href="https://pbs.twimg.com/media/BxY8R9FIYAAzE_H.png:large"><img src="https://pbs.twimg.com/media/BxY8R9FIYAAzE_H.png:large"></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="columns large-8">
+                <p><a href="http://twitter.com/pixelsorter">@pixelsorter</a> is a Twitter bot  written in Ruby heavily utilizing <a href="http://github.com/EVA-01/pxlsrt">EVA-01/pxlsrt</a> and <a href="https://github.com/mispy/twitter_ebooks">mispy/twitter_ebooks</a>. It sorts the rows (or optionally columns) of an image according to a specific method like hue, red, brightness, luma, etc. Simply attach an image to your tweet (links to images currently not supported) and mention @pixelsorter. @pixelsorter will respond with an image that has been processed using one of a number of random presets.</p>
+
+                <h3>Presets</h3>
+
+                <p>There are a number of presets available. You can specify a preset by including the string <code>preset[]</code> with the name of the preset between the brackets. For example, to use the "drip" preset, you would include <code>preset[drip]</code>. If @pixelsorter can't find your preset, it will default to a random preset. Below are a list of presets, sample images, and how you would reproduce them using `cmd[]`, but note that the end effect varies highly depending on the image. I encourage you to experiment!</p>
+
+                <p>If you do not specify a <code>preset[]</code> nor <code>cmd[]</code> when giving an image to @pixelsorter, a random preset will be chosen along with a slight "shaking" of the parameter values, making sure that random results you get are not identical/boring. If you specify a preset directly, this shaking will not occur.</p>
+
+                <h4>baseline image (no pixel sorting)</h4>
+                <img src="img/sample.jpg">
+
+                <div class="row">
+                    <div class="medium-6 columns">
+                        <h4>audio</h4>
+                        <img src="img/output_audio.png">
+                        <p>
+                            <b><code>cmd[middle 2 vertical true]</code></b>
+                        </p>
+                    </div>
+                    <div class="medium-6 columns">
+                        <h4>bands</h4>
+                        <img src="img/output_bands.png">
+                        <p>
+                            <b><code>cmd[middle 5 max 90 min 80 reverse true]</code></b>
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="medium-6 columns">
+                        <h4>burst</h4>
+                        <img src="img/output_burst.png">
+                        <p>
+                            <b><code>cmd[max 300 min 600 method luma diagonal true reverse true]</code></b>
+                        </p>
+                    </div>
+                    <div class="medium-6 columns">
+                        <h4>default</h4>
+                        <img src="img/output_default.png">
+                        <p>
+                            <b>no parameters passed</b>
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="medium-6 columns">
+                        <h4>drip</h4>
+                        <img src="img/output_drip.png">
+                        <p>
+                            <b><code>cmd[vertical true max 80 min 10 smooth true method uniqueness]</code></b>
+                        </p>
+                    </div>
+                    <div class="medium-6 columns">
+                        <h4>mosaic</h4>
+                        <img src="img/output_mosaic.png">
+                        <p>
+                            <b><code>cmd[middle -3 max 50 min 49 vertical true method saturation]</code></b>
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="medium-6 columns">
+                        <h4>painterly</h4>
+                        <img src="img/output_painterly.png">
+                        <p>
+                            <b><code>cmd[vertical true max 300 min 600 method saturation]</code></b>
+                        </p>
+                    </div>
+                    <div class="medium-6 columns">
+                        <h4>shake</h4>
+                        <img src="img/output_shake.png">
+                        <p>
+                            <b><code>cmd[middle -2 max 20 min 10]</code></b>
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="medium-6 columns">
+                        <h4>triphop</h4>
+                        <img src="img/output_triphop.png">
+                        <p>
+                            <b><code>cmd[middle 10 max 350 min 350 diagonal true reverse true]</code></b>
+                        </p>
+                    </div>
+                    <div class="medium-6 columns">
+                        <h4>zigzag</h4>
+                        <img src="img/output_zigzag.png">
+                        <p>
+                            <b><code>cmd[middle 3 max 300 min 240 diagonal true]</code></b>
+                        </p>
+                    </div>
+                </div>
+
+                <h3>Custom Parameters</h3>
+
+                <p>You can pass custom parameters to @pixelsorter by including <code>cmd[]</code> in your tweet with a set of parameters between the brackets. Parameters will always come in key-value pairs and should look something like <code>cmd[max 50 min 20 diagonal true]</code>. You should always have an even number of words between the brackets. If you pass an invalid value as a parameter, @pixelsorter will not respond.</p>
+
+                <p>Here are the custom parameter details (mostly a rewriting/copy of the docs in <a href="http://github.com/EVA-01/pxlsrt">EVA-01/pxlsrt</a>):</p>
+
+                <ul>
+                    <li>
+                        <code>method &lt;string&gt;</code> - the method by which to sort pixels. <code>sum-rgb</code> by default. Don't actually include the brackets (&lt; and &gt;). There are a number available:
+                        <ul>
+                            <li><code>sum-rgb</code> - sorts by the sum of the red, green, and blue values of the pixels</li>
+                            <li><code>red</code> - sorts by the red value of the pixels</li>
+                            <li><code>green</code> - sorts by the green value of the pixels</li>
+                            <li><code>blue</code> - sorts by the blue value of the pixels</li>
+                            <li><code>sum-hsb</code> - sorts by the sum of the hue, saturation, and brightness values of pixels. smoothing option is suggested for this method. <code>smooth true</code> is suggested</li>
+                            <li><code>hue</code> - sorts by the hue value of the pixels, looks like a rainbow. <code>smooth true</code> is suggested</li>
+                            <li><code>saturation</code> - sorts by the saturation value of the piexls, looks like bands fade to grey. <code>smooth true</code> is suggested</li>
+                            <li><code>brightness</code> - sorts by the brightness value of the pixels</li>
+                            <li><code>uniqueness</code> - sorts by the "distance" of the pixel from the average color of the band</li>
+                            <li><code>luma</code> - sorts by human color perception</li>
+                            <li><code>random</code> - randomizes the pixels</li>
+                            <li><code>magenta</code> - sorts by a magenta value</li>
+                            <li><code>cyan</code> - sorts by a cyan value</li>
+                            <li><code>yellow</code> - sorts by a yellow value</li>
+                            <li><code>alpha</code> - sorts by the opacity of a pixel</li>
+                            <li><code>sum-rgba</code> - sorts by the sum of the red, green, blue, and alpha values</li>
+                            <li><code>sum-hsba</code> - sorts by the sum of the hue, saturation, brightness, and alpha values</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <code>min &lt;integer&gt;</code> - minimum length of bandwidth to sort, 1 to infinity--by default is infinity. Don't pass infinity manually, as @pixelsorter doesn't accept a string for this param
+                    </li>
+                    <li>
+                        <code>min &lt;integer&gt;</code> - maximum length of bandwidth to sort, 1 to infinity--by default is infinity. Don't pass infinity manually, as @pixelsorter doesn't accept a string for this param
+                    </li>
+                    <li>
+                        <code>vertical &lt;boolean&gt;</code> - will sort vertically instead of horizontally. <code>false</code> by default
+                    </li>
+                    <li>
+                        <code>smooth &lt;boolean&gt;</code> - places identical pixels adjacent to each other in the band. <code>false</code> by default
+                    </li>
+                    <li>
+                        <code>reverse &lt;boolean&gt;</code> - sorts in reverse. <code>false</code> by default
+                    </li>
+                    <li>
+                        <code>diagonal &lt;boolean&gt;</code> - sorts diagonally. <code>false</code> by default
+                    </li>
+                    <li>
+                        <code>middle &lt;integer&gt;</code> - "middlates"--essentially creates a mirror effect by sorting from the middle out. If you pass <code>1</code>, you'll have a mirror effect. If you pass more, you'll get a duplicated mirror effect. Negative numbers will cause interesting ripple effects. By default, <code>middle</code> is disabled. Numbers greater than 20 or less than -20 are capped because of the memory-intensiveness of this operation.
+                    </li>
+                </ul>
+
+                <h3>High Resolution</h3>
+
+                <p>You can have @pixelsorter return the full, high-resolution version of your image. Ordinarily @pixelsorter will download the default medium size of your image that is displayed on twitter, but if you include the string <code>hires</code> in your tweet, @pixelsorter will download and return the largest available image. <code>hires</code> should be included outside of <code>cmd[]</code> or <code>preset[]</code>. For example, these two tweets would return high resolution images:</p>
+
+                <ul>
+                    <li><code>@pixelsorter cmd[vertical true] hires</code></li>
+                    <li><code>@pixelsorter preset[drip] hires</code></li>
+                </ul>
+
+            </div>
+            <div class="columns large-4">
+                <a class="twitter-timeline" href="https://twitter.com/pixelsorter" data-widget-id="511020286519418880">Tweets by @pixelsorter</a>
+                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+
+
+                <h3>Coming Soon</h3>
+
+                <ul>
+                    <li>Random params option</li>
+                    <li>Dimension-aware max/min values</li>
+                </ul>
+
+                <h3>Feedback and Suggestions</h3>
+
+                <p>Any feedback and suggestions can be sent to <a href="http://twitter.com/wayspurrchen">@wayspurrchen</a>. Longer format stuff can be sent to wayspurrchen at gmail dot com.</p>
+            </div>
+        </div>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-37061560-2', 'auto');
+          ga('send', 'pageview');
+
+        </script>
+    </body>
+</html>
